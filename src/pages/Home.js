@@ -24,18 +24,21 @@ function Home() {
         <a href="/add" className="home-btn">Add Task</a>
       </header>
       <div className="home-task-list">
-        {tasks.map((task) => (
-          <div className="home-task-card" key={task.id}>
-            <h3 className="home-task-title">{task.title}</h3>
-            <p className="home-task-status">Status: {task.status}</p>
-            <p className="home-task-description">{task.description}</p>
-            {task.dueDate && <p className="home-task-due">Due: {task.dueDate.slice(0, 10)}</p>}
-            <div className="home-task-actions">
-              <a href={`/edit/${task.id}`} className="home-btn-secondary">Edit</a>
-              <button onClick={() => deleteTask(task.id)} className="home-btn-danger">Delete</button>
+        {tasks.length === 0 ? <p className='no-tasks'>No tasks to show!! Add Tasks</p> : (
+          tasks.map((task) => (
+            <div className="home-task-card" key={task.id}>
+              <h3 className="home-task-title">{task.title}</h3>
+              <p className="home-task-status">Status: {task.status}</p>
+              <p className="home-task-description">{task.description}</p>
+              {task.dueDate && <p className="home-task-due">Due: {task.dueDate.slice(0, 10)}</p>}
+              <div className="home-task-actions">
+                <a href={`/edit/${task.id}`} className="home-btn-secondary">Edit</a>
+                <button onClick={() => deleteTask(task.id)} className="home-btn-danger">Delete</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
+
       </div>
     </div>
   );

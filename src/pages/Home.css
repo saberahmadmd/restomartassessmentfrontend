@@ -50,6 +50,13 @@
   background: #a71d2a;
 }
 
+.no-tasks {
+  color: rgb(188, 7, 7);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
 .home-task-list {
   display: grid;
   gap: 1rem;
